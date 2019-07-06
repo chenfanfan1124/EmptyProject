@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "classpath:com/skm/common/mybatis/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.skm.demo.persistence.dao.UserDao">
+    <resultMap id="RM" type="com.skm.demo.domain.UserBean">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="login_username" jdbcType="VARCHAR" property="loginUsername" />
+        <result column="login_password" jdbcType="VARCHAR" property="loginPassword" />
+        <result column="openid" jdbcType="VARCHAR" property="openid" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="phone" jdbcType="VARCHAR" property="phone" />
+        <result column="user_type" jdbcType="SMALLINT" property="userType" />
+        <result column="status" jdbcType="TINYINT" property="status" />
+        <result column="entry_id" jdbcType="BIGINT" property="entryId" />
+        <result column="entry_name" jdbcType="VARCHAR" property="entryName" />
+        <result column="entry_dt" jdbcType="TIMESTAMP" property="entryDt" />
+        <result column="update_id" jdbcType="BIGINT" property="updateId" />
+        <result column="update_name" jdbcType="VARCHAR" property="updateName" />
+        <result column="update_dt" jdbcType="TIMESTAMP" property="updateDt" />
+    </resultMap>
+
+    <sql id="columns">
+        `id`,
+        `login_username`,
+        `login_password`,
+        `openid`,
+        `name`,
+        `phone`,
+        `user_type`,
+        `status`,
+        `entry_id`,
+        `entry_name`,
+        `entry_dt`,
+        `update_id`,
+        `update_name`,
+        `update_dt`
+    </sql>
+
+    <insert id="save" useGeneratedKeys="true" keyProperty="id">
+        <![CDATA[
+             INSERT INTO `common_user` (
+                  `id`,
+                  `login_username`,
+                  `login_password`,
+                  `openid`,
+                  `name`,
+                  `phone`,
+                  `user_type`,
+                  `status`,
+                  `entry_id`,
+                  `entry_name`,
+                  `entry_dt`,
+                  `update_id`,
+                  `update_name`,
+                  `update_dt`
+                )
+            VALUES (
+                  #{id, jdbcType=BIGINT},
+                  #{loginUsername, jdbcType=VARCHAR},
+                  #{loginPassword, jdbcType=VARCHAR},
+                  #{openid, jdbcType=VARCHAR},
+                  #{name, jdbcType=VARCHAR},
+                  #{phone, jdbcType=VARCHAR},
+                  #{userType, jdbcType=SMALLINT},
+                  #{status, jdbcType=TINYINT},
+                  #{entryId, jdbcType=BIGINT},
+                  #{entryName, jdbcType=VARCHAR},
+                  #{entryDt, jdbcType=TIMESTAMP},
+                  #{updateId, jdbcType=BIGINT},
+                  #{updateName, jdbcType=VARCHAR},
+                  #{updateDt, jdbcType=TIMESTAMP}
+            )
+        ]]>
+    </insert>
+
+    <insert id="batchSave" useGeneratedKeys="true" parameterType="com.skm.common.mybatis.dto.BatchInsertParameter" keyProperty="id">
+      <![CDATA[
+               INSERT INTO `common_user` (
+                    `id`,
+                    `login_username`,
+                    `login_password`,
+                    `openid`,
+                    `name`,
+                    `phone`,
+                    `user_type`,
+                    `status`,
+                    `entry_id`,
+                    `entry_name`,
+                    `entry_dt`,
+                    `update_id`,
+                    `update_name`,
+                    `update_dt`
+                  )
+              VALUES (
+                    #{id, jdbcType=BIGINT},
+                    #{loginUsername, jdbcType=VARCHAR},
+                    #{loginPassword, jdbcType=VARCHAR},
+                    #{openid, jdbcType=VARCHAR},
+                    #{name, jdbcType=VARCHAR},
+                    #{phone, jdbcType=VARCHAR},
+                    #{userType, jdbcType=SMALLINT},
+                    #{status, jdbcType=TINYINT},
+                    #{entryId, jdbcType=BIGINT},
+                    #{entryName, jdbcType=VARCHAR},
+                    #{entryDt, jdbcType=TIMESTAMP},
+                    #{updateId, jdbcType=BIGINT},
+                    #{updateName, jdbcType=VARCHAR},
+                    #{updateDt, jdbcType=TIMESTAMP}
+              )
+          ]]>
+    </insert>
+
+    <update id="update" >
+        <![CDATA[
+            UPDATE `common_user`
+                SET `login_username` = #{loginUsername, jdbcType=VARCHAR}
+                    , `login_password` = #{loginPassword, jdbcType=VARCHAR}
+                    , `openid` = #{openid, jdbcType=VARCHAR}
+                    , `name` = #{name, jdbcType=VARCHAR}
+                    , `phone` = #{phone, jdbcType=VARCHAR}
+                    , `user_type` = #{userType, jdbcType=SMALLINT}
+                    , `status` = #{status, jdbcType=TINYINT}
+                    , `update_id` = #{updateId, jdbcType=BIGINT}
+                    , `update_name` = #{updateName, jdbcType=VARCHAR}
+                    , `update_dt` = #{updateDt, jdbcType=TIMESTAMP}
+                WHERE id = #{id, jdbcType=BIGINT}
+        ]]>
+    </update>
+
+    <update id="batchUpdate" keyProperty="id" parameterType="com.skm.common.mybatis.dto.BatchUpdateParameter">
+      <![CDATA[
+            UPDATE `common_user`
+                SET `login_username` = #{loginUsername, jdbcType=VARCHAR}
+                    , `login_password` = #{loginPassword, jdbcType=VARCHAR}
+                    , `openid` = #{openid, jdbcType=VARCHAR}
+                    , `name` = #{name, jdbcType=VARCHAR}
+                    , `phone` = #{phone, jdbcType=VARCHAR}
+                    , `user_type` = #{userType, jdbcType=SMALLINT}
+                    , `status` = #{status, jdbcType=TINYINT}
+                    , `update_id` = #{updateId, jdbcType=BIGINT}
+                    , `update_name` = #{updateName, jdbcType=VARCHAR}
+                    , `update_dt` = #{updateDt, jdbcType=TIMESTAMP}
+                WHERE id = #{id, jdbcType=BIGINT}
+          ]]>
+    </update>
+
+    <update id="dynamicUpdate">
+        UPDATE `common_user`
+        <set>
+            <if test="@Ognl@isNotEmpty(loginUsername)"> `login_username` = #{loginUsername, jdbcType=VARCHAR},  </if>
+            <if test="@Ognl@isNotEmpty(loginPassword)"> `login_password` = #{loginPassword, jdbcType=VARCHAR},  </if>
+            <if test="@Ognl@isNotEmpty(openid)"> `openid` = #{openid, jdbcType=VARCHAR},  </if>
+            <if test="@Ognl@isNotEmpty(name)"> `name` = #{name, jdbcType=VARCHAR},  </if>
+            <if test="@Ognl@isNotEmpty(phone)"> `phone` = #{phone, jdbcType=VARCHAR},  </if>
+            <if test="@Ognl@isNotEmpty(userType)"> `user_type` = #{userType, jdbcType=SMALLINT},  </if>
+            <if test="@Ognl@isNotEmpty(status)"> `status` = #{status, jdbcType=TINYINT},  </if>
+            <if test="@Ognl@isNotEmpty(updateId)"> `update_id` = #{updateId, jdbcType=BIGINT},  </if>
+            <if test="@Ognl@isNotEmpty(updateName)"> `update_name` = #{updateName, jdbcType=VARCHAR},  </if>
+            <if test="@Ognl@isNotEmpty(updateDt)"> `update_dt` = #{updateDt, jdbcType=TIMESTAMP},  </if>
+        </set>
+        WHERE `id` = #{id, jdbcType=BIGINT}
+    </update>
+
+    <select id="get" resultMap="RM" parameterType="java.lang.Long">
+        SELECT <include refid="columns" />
+        <![CDATA[
+            FROM `common_user`
+            WHERE
+                `id` = #{id, jdbcType=BIGINT}
+        ]]>
+    </select>
+
+    <select id="getByIds" resultMap="RM">
+      SELECT <include refid="columns" />
+      FROM `common_user`
+      WHERE `id` IN
+      <foreach collection="list" item="item" separator="," open="(" close=")">
+        #{item}
+      </foreach>
+    </select>
+
+    <delete id="del" parameterType="java.lang.Long">
+        <![CDATA[
+            DELETE FROM `common_user` WHERE `id` = #{id, jdbcType=BIGINT}
+        ]]>
+    </delete>
+
+    <delete id="batchDelete" parameterType="com.skm.common.mybatis.dto.BatchUpdateParameter">
+      <![CDATA[
+              DELETE FROM `common_user` WHERE `id` = #{id, jdbcType=BIGINT}
+          ]]>
+    </delete>
+
+    <delete id="delByIds">
+        DELETE
+        FROM `common_user`
+        WHERE `id` IN
+        <foreach collection="list" item="item" separator="," open="(" close=")">
+          #{item}
+        </foreach>
+    </delete>
+
+    <select id="dynamicSelect"  resultMap="RM">
+        SELECT <include refid="columns" /> FROM `common_user` <include refid="querySql" />
+    </select>
+
+    <select id="dynamicSelectPage"  resultMap="RM">
+        SELECT <include refid="columns" /> FROM `common_user` <include refid="querySql" />
+    </select>
+
+    <select id="dynamicCount" resultType="java.lang.Integer">
+        SELECT COUNT(id) FROM `common_user` <include refid="querySql" />
+    </select>
+
+    <update id="lock" parameterType="java.lang.Long">
+        SELECT id FROM `common_user` WHERE `id` = #{id, jdbcType=BIGINT} FOR UPDATE
+    </update>
+
+    <sql id="querySql">
+        <where>
+            <if test="@Ognl@isNotEmpty(id)"> AND `id` = #{id, jdbcType=BIGINT} </if>
+            <if test="@Ognl@isNotEmpty(loginUsername)"> AND `login_username` = #{loginUsername, jdbcType=VARCHAR} </if>
+            <if test="@Ognl@isNotEmpty(loginUsernameLike)"> AND `login_username` like #{loginUsernameLike, jdbcType=VARCHAR} </if>
+            <if test="@Ognl@isNotEmpty(loginPassword)"> AND `login_password` = #{loginPassword, jdbcType=VARCHAR} </if>
+            <if test="@Ognl@isNotEmpty(loginPasswordLike)"> AND `login_password` like #{loginPasswordLike, jdbcType=VARCHAR} </if>
+            <if test="@Ognl@isNotEmpty(openid)"> AND `openid` = #{openid, jdbcType=VARCHAR} </if>
+            <if test="@Ognl@isNotEmpty(openidLike)"> AND `openid` like #{openidLike, jdbcType=VARCHAR} </if>
+            <if test="@Ognl@isNotEmpty(name)"> AND `name` = #{name, jdbcType=VARCHAR} </if>
+            <if test="@Ognl@isNotEmpty(nameLike)"> AND `name` like #{nameLike, jdbcType=VARCHAR} </if>
+            <if test="@Ognl@isNotEmpty(phone)"> AND `phone` = #{phone, jdbcType=VARCHAR} </if>
+            <if test="@Ognl@isNotEmpty(phoneLike)"> AND `phone` like #{phoneLike, jdbcType=VARCHAR} </if>
+            <if test="@Ognl@isNotEmpty(userType)"> AND `user_type` = #{userType, jdbcType=SMALLINT} </if>
+            <if test="@Ognl@isNotEmpty(status)"> AND `status` = #{status, jdbcType=TINYINT} </if>
+            <if test="@Ognl@isNotEmpty(entryId)"> AND `entry_id` = #{entryId, jdbcType=BIGINT} </if>
+            <if test="@Ognl@isNotEmpty(entryName)"> AND `entry_name` = #{entryName, jdbcType=VARCHAR} </if>
+            <if test="@Ognl@isNotEmpty(entryNameLike)"> AND `entry_name` like #{entryNameLike, jdbcType=VARCHAR} </if>
+            <if test="@Ognl@isNotEmpty(entryDt)"> AND `entry_dt` = #{entryDt, jdbcType=TIMESTAMP} </if>
+            <if test="@Ognl@isNotEmpty(updateId)"> AND `update_id` = #{updateId, jdbcType=BIGINT} </if>
+            <if test="@Ognl@isNotEmpty(updateName)"> AND `update_name` = #{updateName, jdbcType=VARCHAR} </if>
+            <if test="@Ognl@isNotEmpty(updateNameLike)"> AND `update_name` like #{updateNameLike, jdbcType=VARCHAR} </if>
+            <if test="@Ognl@isNotEmpty(updateDt)"> AND `update_dt` = #{updateDt, jdbcType=TIMESTAMP} </if>
+            <if test="@Ognl@isNotEmpty(ids)">
+              AND `id`  IN
+              <foreach collection="ids" item="item" separator="," open="(" close=")">
+                #{item}
+              </foreach>
+            </if>
+            <!-- 动态操作符查询 -->
+            <if test="@Ognl@isOperable(_parameter) and @Ognl@isNotEmpty(operatorFilters)">
+              <foreach collection="operatorFilters" index="index" item="operatorFilter" >
+                <if test="@Ognl@isNotEmpty(operatorFilter.value)">
+                  <choose>
+                    <when test="@Ognl@isInOp(operatorFilter.operator)">
+                      AND ${operatorFilter.columnName} in
+                      <foreach collection="operatorFilter.value" index="index" item="item" open="(" separator="," close=")">
+                        #{item}
+                      </foreach>
+                    </when>
+                    <when test="@Ognl@isBetweenOp(operatorFilter.operator)">
+                      AND ${operatorFilter.columnName} between #{operatorFilter.value.start} and #{operatorFilter.value.end}
+                    </when>
+                    <otherwise>
+                      AND ${operatorFilter.columnName} ${operatorFilter.operator} #{operatorFilter.value}
+                    </otherwise>
+                  </choose>
+                </if>
+              </foreach>
+            </if>
+            <!-- 动态OR操作符查询 -->
+            <if test="@Ognl@isNotEmpty(orOperatorFilters)">
+              <foreach collection="orOperatorFilters" index="index" item="operatorFilters" >
+                AND (
+                <foreach collection="operatorFilters" index="i" item="operatorFilter" >
+                  <if test="i!=0">
+                    OR
+                  </if>
+                  <if test="@Ognl@isNotEmpty(operatorFilter.value)">
+                    <choose>
+                      <when test="@Ognl@isInOp(operatorFilter.operator)">
+                        ${operatorFilter.columnName} in
+                        <foreach collection="operatorFilter.value" index="index" item="item" open="(" separator="," close=")">
+                          #{item}
+                        </foreach>
+                      </when>
+                      <when test="@Ognl@isBetweenOp(operatorFilter.operator)">
+                        ${operatorFilter.columnName} between #{operatorFilter.value.start} and #{operatorFilter.value.end}
+                      </when>
+                      <otherwise>
+                        ${operatorFilter.columnName} ${operatorFilter.operator} #{operatorFilter.value}
+                      </otherwise>
+                    </choose>
+                  </if>
+                </foreach>
+                )
+              </foreach>
+            </if>
+        </where>
+    </sql>
+
+</mapper>

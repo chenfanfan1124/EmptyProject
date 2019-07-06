@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="commons-lang3-3.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../新建文件夹/excel2/源码/相关jar包/template jars/commons-lang3-3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../新建文件夹/excel2/源码/相关jar包/template jars/jdom.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

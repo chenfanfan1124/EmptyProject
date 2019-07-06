@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/EmptyProject.iml" filepath="$PROJECT_DIR$/.idea/EmptyProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dynamicdataSource/dynamicdataSource.iml" filepath="$PROJECT_DIR$/dynamicdataSource/dynamicdataSource.iml" />
+      <module fileurl="file://$PROJECT_DIR$/excel_drdc/excel_drdc.iml" filepath="$PROJECT_DIR$/excel_drdc/excel_drdc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/execution-demo/execution-demo.iml" filepath="$PROJECT_DIR$/execution-demo/execution-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot/springboot.iml" filepath="$PROJECT_DIR$/springboot/springboot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot_mybatis/springboot_mybatis.iml" filepath="$PROJECT_DIR$/springboot_mybatis/springboot_mybatis.iml" />
+    </modules>
+  </component>
+</project>

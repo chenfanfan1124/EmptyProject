@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.skm:common-user:1.0.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://E:/maven-3.5.4/repository2/com/skm/common-user/1.0.0-SNAPSHOT/common-user-1.0.0-20190108.085531-3.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://E:/maven-3.5.4/repository2/com/skm/common-user/1.0.0-SNAPSHOT/common-user-1.0.0-20190108.085531-3-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://E:/maven-3.5.4/repository2/com/skm/common-user/1.0.0-SNAPSHOT/common-user-1.0.0-20190108.085531-3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

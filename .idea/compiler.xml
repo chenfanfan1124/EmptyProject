@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="dynamicdataSource" />
+        <module name="execution-demo" />
+        <module name="springboot" />
+        <module name="springboot_mybatis" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="demo" target="1.8" />
+      <module name="dynamicdataSource" target="1.8" />
+      <module name="execution-demo" target="1.8" />
+      <module name="itmayiedu_day29_springboot_mybatis03" target="1.8" />
+      <module name="spri" target="1.8" />
+      <module name="springboot" target="1.8" />
+      <module name="springboot_mybatis" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

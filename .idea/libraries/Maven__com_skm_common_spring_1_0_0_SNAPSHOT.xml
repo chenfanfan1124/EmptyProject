@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.skm:common-spring:1.0.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://E:/maven-3.5.4/repository2/com/skm/common-spring/1.0.0-SNAPSHOT/common-spring-1.0.0-20190110.082044-14.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://E:/maven-3.5.4/repository2/com/skm/common-spring/1.0.0-SNAPSHOT/common-spring-1.0.0-20190110.082044-14-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://E:/maven-3.5.4/repository2/com/skm/common-spring/1.0.0-SNAPSHOT/common-spring-1.0.0-20190110.082044-14-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

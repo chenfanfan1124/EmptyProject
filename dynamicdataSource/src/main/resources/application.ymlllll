@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    jdbc-url: jdbc:mysql://127.0.0.1:3306/default_db?useUnicode=true&amp;noDatetimeStringSync=true&amp;characterEncoding=utf8
+    username: root
+    password: FAN529508042
+    provider:
+      driver-class-name: com.mysql.jdbc.Driver
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/provider_db?useUnicode=true&amp;noDatetimeStringSync=true&amp;characterEncoding=utf8
+      username: root
+      password: FAN529508042
+    consumer:
+      driver-class-name: com.mysql.jdbc.Driver
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/consumer_db?useUnicode=true&amp;noDatetimeStringSync=true&amp;characterEncoding=utf8
+      username: root
+      password: FAN529508042
+server:
+  port: 8080
+
+
